@@ -61,7 +61,7 @@ linux-log-monitor/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/linux-log-monitor.git
+git clone https://github.com/iamajay97/linux-log-monitor.git
 cd linux-log-monitor
 ```
 
