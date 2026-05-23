@@ -1,0 +1,40 @@
+{
+  "scan_interval_seconds": 30,
+  "slack_webhook_url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+  "log_files": [
+    "/var/log/syslog",
+    "/var/log/auth.log",
+    "/var/log/nginx/error.log",
+    "/var/log/app/application.log"
+  ],
+  "keywords": {
+    "CRITICAL": [
+      "CRITICAL",
+      "FATAL",
+      "PANIC",
+      "KERNEL PANIC",
+      "OUT OF MEMORY",
+      "OOM KILLER",
+      "SEGFAULT",
+      "DISK FULL"
+    ],
+    "ERROR": [
+      "ERROR",
+      "EXCEPTION",
+      "TRACEBACK",
+      "CONNECTION REFUSED",
+      "TIMEOUT",
+      "FAILED TO",
+      "AUTHENTICATION FAILURE",
+      "PERMISSION DENIED"
+    ],
+    "WARNING": [
+      "WARNING",
+      "WARN",
+      "DEPRECATED",
+      "RETRY",
+      "HIGH CPU",
+      "HIGH MEMORY"
+    ]
+  }
+}
