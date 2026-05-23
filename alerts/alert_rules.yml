@@ -1,0 +1,30 @@
+groups:
+  - name: log_monitor_alerts
+    rules:
+
+      - alert: CriticalLogDetected
+        expr: increase(log_monitor_critical_total[5m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical log entry detected"
+          description: "A CRITICAL keyword was found in monitored log files in the last 5 minutes."
+
+      - alert: HighErrorRate
+        expr: rate(log_monitor_errors_total[5m]) > 0.5
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High error rate in logs"
+          description: "More than 0.5 errors/sec detected in monitored logs over the last 5 minutes."
+
+      - alert: LogMonitorDown
+        expr: time() - log_monitor_last_scan_timestamp > 120
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Log monitor has stopped scanning"
+          description: "No scan has completed in the last 2 minutes. The log monitor may be down."
